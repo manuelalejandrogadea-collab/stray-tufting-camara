@@ -18,34 +18,28 @@ jobs:
       - name: Descargar código del repositorio
         uses: actions/checkout@v4
 
+      - name: Configurar Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
       - name: Configurar Java JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Configurar Node.js 18
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
       - name: Instalar dependencias
         run: npm install
 
-      - name: Generar código nativo de Android
-        run: npx expo prebuild --platform android
+      - name: Instalar EAS CLI de manera global
+        run: npm install -g eas-cli
 
-      - name: Compilar APK con Gradle usando Java 17
-        env:
-          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
-        run: |
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
+      - name: Ejecutar build local con EAS
+        run: npx eas-cli build --platform android --profile preview --local --non-interactive
 
       - name: Subir APK generado
         uses: actions/upload-artifact@v4
         with:
           name: Stray-Tufting-Camara-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-          
+          path: '*.apk'
