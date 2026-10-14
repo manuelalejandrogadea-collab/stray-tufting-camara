@@ -30,6 +30,11 @@
         "WRITE_EXTERNAL_STORAGE",
         "MEDIA_LIBRARY"
       ]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "stray-tufting-camara"
+      }
     }
   }
 }
