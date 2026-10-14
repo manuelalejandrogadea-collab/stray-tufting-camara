@@ -35,6 +35,11 @@ jobs:
       - name: Instalar EAS CLI
         run: npm install -g eas-cli
 
+      - name: Vincular proyecto en EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas init --auto
+
       - name: Compilar APK localmente con EAS
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
@@ -45,4 +50,3 @@ jobs:
         with:
           name: Stray-Tufting-Camara-APK
           path: '*.apk'
-          
