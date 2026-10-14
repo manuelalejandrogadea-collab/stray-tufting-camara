@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Stray Tufting Camara",
+    "slug": "stray-tufting-camara",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./logo.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./logo.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.straytufting.camara",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "MEDIA_LIBRARY"
+      ]
+    }
+  }
+}
